@@ -1,19 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // Import of the model Recipe from './models/Recipe.model.js'
-const Recipe = require('./models/Recipe.model');
+const Recipe = require("./models/Recipe.model");
 // Import of the data from './data.json'
-const data = require('./data');
+const data = require("./data");
 
-const MONGODB_URI = 'mongodb://127.0.0.1:27017/recipe-app';
+const MONGODB_URI = "mongodb://127.0.0.1:27017/recipe-app";
 
 // Connection to the database "recipe-app"
 mongoose
   .connect(MONGODB_URI)
-  .then(x => {
+  .then((x) => {
     console.log(`Connected to the database: "${x.connection.name}"`);
     // Before adding any recipes to the database, let's remove all existing ones
-    return Recipe.deleteMany()
+    return Recipe.deleteMany();
   })
   .then(() => {
     const newRecipe = {
@@ -21,7 +21,7 @@ mongoose
       level: "Easy",
       ingredients: ["Sellerie", "Karotten", "Hack", "Tomaten"],
       cuisine: "Italian",
-      dishType: "Main,
+      dishType: "Main",
       image:
         "https://assets.bonappetit.com/photos/5c2f8fe26558e92c8a622671/1:1/w_960,c_limit/bolognese-1.jpg",
       duration: 5,
